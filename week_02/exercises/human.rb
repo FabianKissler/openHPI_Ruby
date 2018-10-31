@@ -1,4 +1,5 @@
-# Ruby class Human
+# openHPI - Programmieren mit Ruby
+# Woche 2 - Uebung 2.3
 
 class Human
     def initialize(name, age)
