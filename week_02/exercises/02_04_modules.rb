@@ -1,4 +1,4 @@
-# openHPI - Programmieren mit Ruby
+# openHPI - Programming with Ruby
 # 2.4 Modules
 
 class Task
