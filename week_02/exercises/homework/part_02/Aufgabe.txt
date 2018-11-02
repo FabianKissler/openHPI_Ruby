@@ -1,0 +1,45 @@
+ruby2018 - HA 2.2
+======================
+**Implementiere den `list`-Befehl für unseren Time-Tracker.**
+
+Beim Aufruf von `ruby tasks.rb list` sollen die in `tasks.txt` abgespeicherten Aufgaben angezeigt werden, angereichert mit ein paar einfachen Statistiken.
+
+### Aufgabe
+
+Gegeben sind Ausschnitte des aus den Videos bekannten Time-Trackers `tasks.rb` - auch die Logik zum Einlesen der Datei ist bereits vorgegeben.
+
+Erweitere die Datei `tasks.rb` so, dass...
+
+- beim Ausführen der Datei mit dem Argument `list` (und nur dann!) die Tasks angezeigt werden,
+- zuerst die Anzahl der Aufgaben, danach die Anzahl gruppiert nach offen und erledigt angezeigt werden,
+- danach pro Zeile eine Aufgabe (erst die offenen, dann die erledigten) angezeigt wird.
+
+**Füge dazu am Ende der Datei Code hinzu**, der die Kommandozeilen-Argumente aus `ARGV` ausliest und mithilfe der vorgegebenen Klassen (und ggf. deinen Erweiterungen) den `list`-Befehl wie hier beschrieben ausführt.
+
+**Hinweise:**
+
+- Die Ausgabe sollte dem unter "Ausgabeformat" gezeigten Beispiel (natürlich mit den aus tasks.txt ausgelesenen Aufgaben) entsprechen.
+- Zuerst müssen die offenen, dann die erledigten Aufgaben angezeigt werden. Innerhalb dieser "Gruppen" ist die Reihenfolge egal.
+- Die Datei `tasks.txt` enthält Beispieldaten, die bei jeder Test-Ausführung durch zufällige Testdaten ersetzt werden.
+
+### Ausgabeformat
+
+Mit den Beispieldaten aus `tasks.txt` sollte folgende Anzeige generiert werden:
+
+    7 Aufgaben im System
+    4 offen, 3 erledigt
+    OFFEN: Ordnen
+    OFFEN: Abwaschen
+    OFFEN: Schrubben
+    OFFEN: Wienern
+    ERLEDIGT: Waschen
+    ERLEDIGT: Reparieren
+    ERLEDIGT: Reinigen
+
+### Tipp
+
+**Nutze zum Ausführen des Codes am besten den Button "Bewerten". Dieser führt die automatisierten Tests aus, deren Ausgaben meist nützliche Informationen, z.B. einen Vergleich deiner Ausgabe mit der erwarteten Aufgabe, enthalten.** Der Button "Auswerten" führt die Datei ohne weitere Parameter aus, was bei dieser Ausgabe nicht besonders hilfreich ist.
+
+Es lohnt sich, die Logik für Statistiken (z.B. die Berechnung der Anzahl an offenen bzw. erledigten Aufgaben) in neuen Methoden direkt in den Klassen `Task` bzw. `TaskList`, also "so nah an den Daten wie möglich" zu implementieren.
+
+Wie immer gilt: Auch Teillösungen können Punkte und wertvolles Feedback für den Rest der Lösung liefern.
