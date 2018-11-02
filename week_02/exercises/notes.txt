@@ -1,0 +1,4 @@
+Cheatsheat
+
+# Tell irb to load classes from file.
+irb -r ./tasks.rb
