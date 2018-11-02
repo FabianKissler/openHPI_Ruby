@@ -1,0 +1,45 @@
+ruby2018 - HA 2.3
+======================
+**Implementiere den `done`-Befehl für unseren Time-Tracker.**
+
+Beim Aufruf von `ruby tasks.rb done Putzen` soll die passende offene Ausgabe als abgeschlossen markiert werden.
+
+### Aufgabe
+
+Gegeben sind Ausschnitte des aus den Videos bekannten Time-Trackers `tasks.rb` - auch die Logik zum Einlesen der Datei ist bereits vorgegeben.
+
+Erweitere die Datei `tasks.rb` so, dass...
+
+- beim Ausführen der Datei mit dem Argument `done` (und nur dann!) die durch das zweite Argument bezeichnete Aufgabe als abgeschlossen markiert wird, indem das Attribut `@end_time` der Aufgabe auf die aktuelle Zeit gesetzt wird, und
+- diese Änderung wieder in die `tasks.txt` geschrieben wird. **Das Schreiben in die Datei musst du selbst implementieren, z.B. analog zur schon existierenden Methode `load`, die das Lesen implementiert.**
+
+**Hinweise:**
+
+- Das Dateiformat ist aus dem Video und der vorigen Aufgabe bekannt: jede Zeile besteht aus Aufgabentext, Komma, Startdatum, Komma und Enddatum.
+- Eine Beispieldatei findet sich wieder in tasks.txt.
+- Wenn die angegebene Aufgabe in der Datei nicht existiert *oder bereits abgeschlossen sind*, soll die Datei nicht verändert werden.
+- Bitte beachte die Ausgabetexte im folgenden Beispiel - auch diese müssen korrekt implementiert sein.
+
+### Beispiel
+
+Gegeben ist die folgende `tasks.txt`-Datei:
+
+    Ordnen,2018-10-02 11:00:00 +0200,
+    Abwaschen,2018-10-02 10:00:00 +0200,
+
+Dann würde nach der Ausführung des Befehls `ruby tasks.rb done Ordnen` die Datei z.B. wie folgt aussehen:
+
+    Ordnen,2018-10-02 11:00:00 +0200,2018-10-02 11:33:00 +0200
+    Abwaschen,2018-10-02 10:00:00 +0200,
+
+Die Ausgabe würde lauten: `Ordnen erledigt. Noch 1 Aufgaben offen.`
+
+Würde man nun noch einmal `ruby tasks.rb done Ordnen` ausführen, dürfte sich die Datei nicht erneut verändern, die Ausgabe müsste lauten: `Nichts zu erledigen.`
+
+Auch bei der Ausführung des Befehls `ruby tasks.rb done Putzen` (also eine unbekannte Aufgabe) würde sich die Datei nicht verändern, mit der Ausgabe `Nichts zu erledigen.`
+
+### Tipp
+
+**Nutze zum Ausführen des Codes am besten den Button "Bewerten". Dieser führt die automatisierten Tests aus, deren Ausgaben meist nützliche Informationen, z.B. einen Vergleich deiner Ausgabe mit der erwarteten Aufgabe, enthalten.** Der Button "Auswerten" führt die Datei ohne weitere Parameter aus, was bei dieser Ausgabe nicht besonders hilfreich ist.
+
+Wie immer gilt: Auch Teillösungen können Punkte und wertvolles Feedback für den Rest der Lösung liefern.
