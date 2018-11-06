@@ -33,6 +33,10 @@ class Task
 
     (@end_time - @start_time).to_i
   end
+
+  def to_s
+    "#{@text},#{@start_time},#{@end_time}\n"
+  end
 end
 
 
@@ -65,6 +69,62 @@ class TaskList
     @tasks << task
     self
   end
+
+  def [](index)
+    @tasks[index]
+  end
+
+  def []=(index, task)
+    @tasks[index] = task
+  end
+
+  def size
+    @tasks.size
+  end
+
+  def num_completed
+    @tasks.select(&:completed?).size
+  end
+
+  def num_open
+    @tasks.reject(&:completed?).size
+  end
+
+  def print_statistics
+    print self.size, " Aufgaben im System\n"
+    print self.num_open, " offen, ", self.num_completed, " erledigt\n"
+    @tasks.reject(&:completed?).each do |task|
+      print "OFFEN: ", task.text, "\n"
+    end
+    @tasks.select(&:completed?).each do |task|
+      print "ERLEDIGT: ", task.text, "\n"
+    end
+  end
+
+  def save(filename)
+    File.write(
+        filename,
+        map(&:to_s).join
+    )
+end
 end
 
 
+case ARGV.shift
+when "done"
+  list = TaskList.from_file "tasks.txt"
+  
+  if list.none? { |task| task.text == ARGV.first }
+    puts "Nichts zu erledigen."
+  else
+    task_index = list.find_index { |task| task.text == ARGV.first }
+    
+    if list[task_index].completed?
+      puts "Nichts zu erledigen."
+    else
+    list[task_index].complete!
+    list.save "tasks.txt"
+    puts ARGV.first.to_s + " erledigt. Noch " + list.num_open.to_s + " Aufgaben offen."
+    end
+  end
+end
